@@ -14,10 +14,11 @@ import { NgRedux, DevToolsExtension } from '@angular-redux/store';
 import { rootReducer, IAppState } from './store/index';
 import { FavoritesActions } from './actions/favorites.actions'
 import { AppComponent } from './app.component';
+import { CitieListComponent } from './components/citie-list/citie-list.component';
 
 @NgModule({
-  imports: [ NgReduxModule, BrowserModule, FormsModule, HttpModule ],
-  declarations: [ AppComponent ],
+  imports: [ NgReduxModule, BrowserModule, FormsModule, HttpModule,HttpClientModule, MatAutocompleteModule,MatInputModule ],
+  declarations: [ AppComponent, CitieListComponent ],
   providers: [ FavoritesActions ],
   bootstrap:    [ AppComponent ]
 })

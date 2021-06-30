@@ -3,11 +3,12 @@ import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
 import { City } from './model/city';
 import { FavoritesActions } from './actions/favorites.actions';
-
+import { CitieListComponent } from './components/citie-list';
 @Component({
   selector: 'my-app',
   template: `
     <div>
+      <app-citie-list></app-citie-list>
       <hr />
       TOTAL Favorite Cities: {{ (cities$ | async).length }}
       <br />
