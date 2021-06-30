@@ -11,7 +11,7 @@ export class FavoritesActions {
 
   constructor(private ngRedux: NgRedux<IAppState>) {}
 
-  add(city: City): void {
+  add(city: any): void {
     //console.log(name)
     this.ngRedux.dispatch({
       type: FavoritesActions.CITY_ADD,

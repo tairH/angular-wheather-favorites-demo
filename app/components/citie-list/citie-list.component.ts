@@ -27,7 +27,7 @@ export class CitieListComponent implements OnInit {
   ngOnInit() {
     this.searchCitiesCtrl.valueChanges
       .pipe(
-        debounceTime(500),
+        debounceTime(400),
         tap(() => {
           this.errorMsg = '';
           this.filteredCities = [];

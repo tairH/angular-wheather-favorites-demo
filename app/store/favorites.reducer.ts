@@ -4,10 +4,10 @@ import { City, State } from '../model/city';
 const INITIAL_STATE: State = {
   selectedCity: null,
   favorites: [
-    { code: 1, desc: 'Fabio' },
-    { code: 2, desc: 'Lorenzo' },
-    { code: 3, desc: 'Silvia' },
-    { code: 4, desc: 'Lisa' }
+   // { code: 1, desc: 'Fabio' },
+   /// { code: 2, desc: 'Lorenzo' },
+   // { code: 3, desc: 'Silvia' },
+   // { code: 4, desc: 'Lisa' }
   ]
 };
 export const selectCity = (state: State) => state.selectedCity;
@@ -19,13 +19,16 @@ export function FavoritesReducer(
 ): any {
   switch (action.type) {
     case FavoritesActions.CITY_ADD: {
+      if(!state.favorites.includes(action.payload))
       return { ...state, favorites: [...state.favorites, action.payload] };
+      else return state;
+
     }
 
     case FavoritesActions.CITY_DELETE: {
       return {
         ...state,
-        favorites: state.favorites.filter(city => city.code !== action.payload)
+        favorites: state.favorites.filter(city => city.Key !== action.payload)
       };
     }
     case FavoritesActions.SET_CURRENT_CITY:

@@ -17,9 +17,9 @@
     [multiple]="false">
     <mat-list-option *ngIf="isLoading" class="is-loading">Loading...</mat-list-option>
     <ng-container *ngIf="!isLoading">
-      <mat-list-option *ngFor="let city of filteredCities" [value]="city">
+      <mat-list-option *ngFor="let city of filteredCities" [value]="city">       
+        <div mat-line>{{city.LocalizedName}}</div>
         <div mat-line>{{city.Country.LocalizedName}}</div>
-        <div mat-line>{{city.AdministrativeArea.LocalizedName}}</div>
       </mat-list-option>
     </ng-container>
   </mat-selection-list>
@@ -27,8 +27,8 @@
   <ng-container *ngIf="errorMsg; else elseTemplate">
     {{errorMsg}}
   </ng-container>
-  <ng-template #elseTemplate>
+  <!--<ng-template #elseTemplate>
     <h5>Selected Value: {{searchCitiesCtrl.value}}</h5>
-  </ng-template>
+  </ng-template>-->
 
 </div>

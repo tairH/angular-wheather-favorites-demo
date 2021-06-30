@@ -5,5 +5,5 @@ export interface City {
 
 export interface State{
   selectedCity?:any;
-  favorites:City[];
+  favorites:any[];
 }
