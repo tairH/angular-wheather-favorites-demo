@@ -13,8 +13,10 @@ export function FavoritesReducer (
   ): any {
 
   switch (action.type) {
-    case FavoritesActions.CITY_ADD:
+    case FavoritesActions.CITY_ADD:{
+      
       return [...favorites, action.payload];
+    }
 
     case FavoritesActions.CITY_DELETE:
       return favorites.filter((city) => city.code !== action.payload);
