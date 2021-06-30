@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
 import { CitieListComponent } from './components/citie-list/citie-list.component';
 
 @NgModule({
-  imports: [ NgReduxModule, BrowserModule, FormsModule, HttpModule,HttpClientModule, MatAutocompleteModule,MatInputModule ],
+  imports: [ NgReduxModule, BrowserModule, FormsModule, HttpModule,HttpClientModule, MatAutocompleteModule,MatInputModule, ReactiveFormsModule ],
   declarations: [ AppComponent, CitieListComponent ],
   providers: [ FavoritesActions ],
   bootstrap:    [ AppComponent ]
