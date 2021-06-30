@@ -7,19 +7,18 @@ import { City } from '../model/city';
 export class FavoritesActions {
   static CITY_ADD = 'CITY_ADD';
   static CITY_DELETE = 'CITY_DELETE';
+  static SET_CURRENT_CITY = 'SET_CURRENT_CITY';
 
-  constructor(
-    private ngRedux: NgRedux<IAppState>,
-  ) { }
+  constructor(private ngRedux: NgRedux<IAppState>) {}
 
   add(city: City): void {
-    console.log(name)
+    //console.log(name)
     this.ngRedux.dispatch({
       type: FavoritesActions.CITY_ADD,
       payload: city
     });
   }
-  
+
   delete(code): void {
     this.ngRedux.dispatch({
       type: FavoritesActions.CITY_DELETE,
@@ -27,4 +26,10 @@ export class FavoritesActions {
     });
   }
 
+  setCurrentCity(city: any): void {
+    this.ngRedux.dispatch({
+      type: FavoritesActions.SET_CURRENT_CITY,
+      payload: city
+    });
+  }
 }

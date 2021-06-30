@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
-
+import {MatListModule} from '@angular/material/list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgReduxModule } from '@angular-redux/store';
@@ -25,6 +25,7 @@ import { FavoritesService } from './services/favorites.service';
     HttpModule,
     HttpClientModule,
     MatAutocompleteModule,
+    MatListModule,
     MatInputModule,
     BrowserAnimationsModule,
     ReactiveFormsModule

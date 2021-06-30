@@ -1,28 +1,36 @@
 import { FavoritesActions } from '../actions/favorites.actions';
-import { City } from '../model/city';
+import { City, State } from '../model/city';
 
-const INITIAL_STATE: City[] = [
-  { code: 1, desc: 'Fabio' },
-  { code: 2, desc: 'Lorenzo' },
-  { code: 3, desc: 'Silvia' },
-  { code: 4, desc: 'Lisa' }
-];
+const INITIAL_STATE: State = {
+  selectedCity: null,
+  favorites: [
+    { code: 1, desc: 'Fabio' },
+    { code: 2, desc: 'Lorenzo' },
+    { code: 3, desc: 'Silvia' },
+    { code: 4, desc: 'Lisa' }
+  ]
+};
+export const selectCity = (state: State) => state.selectedCity;
+export const selectAllFavorites = (state: State) => state.favorites;
 
-export function FavoritesReducer (
-  favorites: City[] = INITIAL_STATE, action: any
-  ): any {
-
+export function FavoritesReducer(
+  state: State = INITIAL_STATE,
+  action: any
+): any {
   switch (action.type) {
-    case FavoritesActions.CITY_ADD:{
-      
-      return [...favorites, action.payload];
+    case FavoritesActions.CITY_ADD: {
+      return { ...state, favorites: [...state.favorites, action.payload] };
     }
 
-    case FavoritesActions.CITY_DELETE:
-      return favorites.filter((city) => city.code !== action.payload);
-
+    case FavoritesActions.CITY_DELETE: {
+      return {
+        ...state,
+        favorites: state.favorites.filter(city => city.code !== action.payload)
+      };
+    }
+    case FavoritesActions.SET_CURRENT_CITY:
+      return { ...state, selectedCity: action.payload };
     default:
-      return [...favorites];
+      return state;
   }
 }
-

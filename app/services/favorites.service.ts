@@ -26,7 +26,7 @@ export class FavoritesService {
 
         return this.allCities.length ?
           of(this.allCities) :
-          this.http.get("https://api.accuweather.com/locations/v1/cities/autocomplete?q="+term+"&apikey=mrBsuy5UA6FU0jgep7GtlwxX92PlZRe0").pipe(tap(data => this.allCities = data))
+          this.http.get("https://dataservice.accuweather.com/locations/v1/cities/autocomplete?q="+term+"&apikey=mrBsuy5UA6FU0jgep7GtlwxX92PlZRe0").pipe(tap(data => this.allCities = data))
   }
   addFavoriteCity(city:City){}
   removeFavoriteCity(code:number){}
